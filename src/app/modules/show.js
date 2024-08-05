@@ -1,37 +1,3 @@
-/* 
- <article class="main__article mt-5">
-                <h3 class="main__title text-center fw-bold">YOU MAY ALSO LIKE</h3>
-                <ul class="cards__container d-flex flex-wrap justify-content-evenly">
-                    <li class="card border-0">
-                        <img class="card__img" src="./assets/images/img-5.png" alt="img card">
-                        <p class="card__descritpion fw-bold fs-5 text-center">
-                            <strong class="card__title d-block mt-3">Fresh Stripe Sweater</strong>
-                            <em class="card__price fst-normal">$85.00</em>
-                        </p>
-                    </li>
-                    <li class="card border-0">
-                        <img class="card__img" src="./assets/images/img-8.png" alt="img card">
-                        <p class="card__descritpion fw-bold fs-5 text-center">
-                            <strong class="card__title d-block mt-3">Fresh Black Tie-Dye Hoodie</strong>
-                            <em class="card__price fst-normal">$75.00</em>
-                        </p>
-                    </li>
-                    <li class="card border-0">
-                        <img class="card__img" src="./assets/images/img-14.png" alt="img card">
-                        <p class="card__descritpion fw-bold fs-5 text-center">
-                            <strong class="card__title d-block mt-3">Pose For It Tee</strong>
-                            <em class="card__price fst-normal">$45.00</em>
-                        </p>
-                    </li>
-                </ul>
-            </article>
-
-            
-*/
-
-
-
-
 export const showData = (data, container) => {
 
     container.innerHTML = ""
