@@ -74,6 +74,27 @@
     border-radius: 50%;
 }
 
+.main__title{
+    font-size: 75px;    
+    margin-top: 15vh;
+}
+
+.cards__container{
+    border: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.card{
+    width: 340px;
+}
+
+.card__img{
+    width: 100%;
+    object-fit: cover;
+    height: 511px;
+}
+
 .footer__img{
     height:75vh ;
     max-height: 806.32px;
