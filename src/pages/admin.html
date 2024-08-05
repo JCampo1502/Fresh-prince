@@ -1,11 +1,331 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CRUD de Productos</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: url("/src/files/img/ropa-fondo-2.jpg");
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+          }
+          .container {
+            margin-top: 40px;
+            padding: 50px 50px;
+          }
+        .card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        .card-body {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 0 0 15px 15px;
+        }
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        .card-price {
+            font-size: 1.125rem;
+            color: #007bff;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .btn-custom {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            transition: background-color 0.3s;
+        }
+        .btn-custom:hover {
+            background-color: #0056b3;
+        }
+        .modal-content {
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .modal-header {
+            border-bottom: none;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 15px 15px 0 0;
+        }
+        .modal-footer {
+            border-top: none;
+        }
+        .modal-body {
+            padding: 20px;
+        }
+        .form-control {
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+            transition: border-color 0.3s;
+        }
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+        .btn-close {
+            filter: invert(1);
+        }
+        .btn-close:hover {
+            filter: invert(0.8);
+        }
+        .btn-danger-custom {
+            background-color: #dc3545;
+            border: none;
+            color: #fff;
+            border-radius: 5px;
+            padding: 10px 20px;
+            transition: background-color 0.3s;
+        }
+        .btn-danger-custom:hover {
+            background-color: #c82333;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="container">
+        <h1 class="text-center mb-5">Gestión de Productos</h1>
+        
+        <!-- Formulario para Añadir Producto -->
+        <div class="mb-5">
+            <h2 class="mb-4">Añadir Producto</h2>
+            <form id="productForm">
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <label for="name" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <label for="price" class="form-label">Precio</label>
+                        <input type="number" class="form-control" id="price" step="0.01" required>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <label for="image" class="form-label">Imagen 1 URL</label>
+                        <input type="text" class="form-control" id="image" required>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <label for="image2" class="form-label">Imagen 2 URL</label>
+                        <input type="text" class="form-control" id="image2" required>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <label for="image3" class="form-label">Imagen 3 URL</label>
+                        <input type="text" class="form-control" id="image3" required>
+                    </div>
+                    <div class="col-12 mb-4">
+                        <label for="description" class="form-label">Descripción</label>
+                        <textarea class="form-control" id="description" rows="3" required></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-custom">Añadir Producto</button>
+            </form>
+        </div>
+
+        <!-- Contenedor de Productos -->
+        <div id="productContainer" class="row"></div>
+    </div>
+
+    <!-- Modal para Editar Producto -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="editModalLabel">Editar Producto</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editProductForm">
+                        <input type="hidden" id="editId">
+                        <div class="mb-3">
+                            <label for="editName" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="editName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editImage" class="form-label">Imagen 1 URL</label>
+                            <input type="text" class="form-control" id="editImage" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editImage2" class="form-label">Imagen 2 URL</label>
+                            <input type="text" class="form-control" id="editImage2" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editImage3" class="form-label">Imagen 3 URL</label>
+                            <input type="text" class="form-control" id="editImage3" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editDescription" class="form-label">Descripción</label>
+                            <textarea class="form-control" id="editDescription" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editPrice" class="form-label">Precio</label>
+                            <input type="number" class="form-control" id="editPrice" step="0.01" required>
+                        </div>
+                        <button type="submit" class="btn btn-custom">Actualizar Producto</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Confirmar Eliminación -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="deleteModalLabel">Confirmar Eliminación</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¿Estás seguro de que deseas eliminar este producto?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger-custom" id="confirmDelete">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+    <script>
+        const productContainer = document.getElementById('productContainer');
+        const productForm = document.getElementById('productForm');
+        const editProductForm = document.getElementById('editProductForm');
+        const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
+        const editModal = new bootstrap.Modal(document.getElementById('editModal'));
+        let editProductId = null;
+
+        const saveProducts = (products) => {
+            localStorage.setItem('productos', JSON.stringify(products));
+        };
+
+        const loadProducts = () => {
+            const products = JSON.parse(localStorage.getItem('productos')) || [];
+            showData(products, productContainer);
+        };
+
+        const showData = (data, container) => {
+            container.innerHTML = "";
+            data.forEach((element) => {
+                let { id, name, image, image2, image3, description, price } = element;
+                const div = document.createElement("div");
+                div.classList.add("col-md-4");
+                div.classList.add("mb-4");
+                div.classList.add("d-flex");
+                div.classList.add("justify-content-center");
+                div.setAttribute("id", id);
+                div.innerHTML = `
+                    <div class="card">
+                        <img src="${image}" class="card-img-top" alt="${name}">
+                        <img src="${image2}" class="card-img-top" alt="${name}">
+                        <img src="${image3}" class="card-img-top" alt="${name}">
+                        <div class="card-body">
+                            <h5 class="card-title">${name}</h5>
+                            <p class="card-price">$${price}</p>
+                            <p>${description}</p>
+                            <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#editModal" onclick="editProduct('${id}')">
+                                Editar
+                            </button>
+                            <button type="button" class="btn btn-danger-custom btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal" onclick="setDeleteProductId('${id}')">
+                                Eliminar
+                            </button>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        };
+
+        const addProduct = (e) => {
+            e.preventDefault();
+            const products = JSON.parse(localStorage.getItem('productos')) || [];
+            const newProduct = {
+                id: Date.now().toString(),
+                name: document.getElementById('name').value,
+                image: document.getElementById('image').value,
+                image2: document.getElementById('image2').value,
+                image3: document.getElementById('image3').value,
+                description: document.getElementById('description').value,
+                price: parseFloat(document.getElementById('price').value),
+            };
+            products.push(newProduct);
+            saveProducts(products);
+            productForm.reset();
+            loadProducts();
+        };
+
+        const editProduct = (id) => {
+            const products = JSON.parse(localStorage.getItem('productos')) || [];
+            const product = products.find(p => p.id === id);
+            if (product) {
+                document.getElementById('editId').value = product.id;
+                document.getElementById('editName').value = product.name;
+                document.getElementById('editImage').value = product.image;
+                document.getElementById('editImage2').value = product.image2;
+                document.getElementById('editImage3').value = product.image3;
+                document.getElementById('editDescription').value = product.description;
+                document.getElementById('editPrice').value = product.price;
+                editModal.show(); // Mostrar el modal de edición
+            }
+        };
+
+        const updateProduct = (e) => {
+            e.preventDefault();
+            const products = JSON.parse(localStorage.getItem('productos')) || [];
+            const id = document.getElementById('editId').value;
+            const index = products.findIndex(p => p.id === id);
+            if (index !== -1) {
+                products[index] = {
+                    id,
+                    name: document.getElementById('editName').value,
+                    image: document.getElementById('editImage').value,
+                    image2: document.getElementById('editImage2').value,
+                    image3: document.getElementById('editImage3').value,
+                    description: document.getElementById('editDescription').value,
+                    price: parseFloat(document.getElementById('editPrice').value),
+                };
+                saveProducts(products);
+                loadProducts();
+                editModal.hide(); // Ocultar el modal de edición
+            }
+        };
+
+        const setDeleteProductId = (id) => {
+            document.getElementById('confirmDelete').onclick = () => deleteProduct(id);
+        };
+
+        const deleteProduct = (id) => {
+            const products = JSON.parse(localStorage.getItem('productos')) || [];
+            const updatedProducts = products.filter(p => p.id !== id);
+            saveProducts(updatedProducts);
+            loadProducts();
+            deleteModal.hide(); // Ocultar el modal de eliminación
+        };
+
+        productForm.addEventListener('submit', addProduct);
+        editProductForm.addEventListener('submit', updateProduct);
+        
+        document.addEventListener('DOMContentLoaded', loadProducts);
+    </script>
 </body>
 </html>

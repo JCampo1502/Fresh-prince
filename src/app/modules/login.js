@@ -57,7 +57,7 @@ function ingresar() {
     if (usuario.contrasena === contrasena) {
       // Guardar el usuario actual en sessionStorage
       sessionStorage.setItem("usuarioActual", JSON.stringify(usuario));
-      window.location.href = "/src/index.html";
+      window.location.href = "/src/pages/home.html";
     } else {
       alert("Contraseña incorrecta");
     }

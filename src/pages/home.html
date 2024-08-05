@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reto Agile Inova</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <header class="header container container-lg ">
+        <nav class="navbar navbar-expand-sm bg-body-white px-lg-5">
+            <div class="container-fluid">
+                <a class="navbar-brand title" href="#">Príncipe fresco</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">SHOP</a>
+                    </li>
+                    <li class="nav-item">
+                    <button class="nav-link active" id="collections" href="#">COLLECTIONS</button>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./pages/login.html">
+                            <img src="./assets/icons/user.svg" alt="icon">
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link active" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+                        <img src="./assets/icons/shop.svg" alt="icon">
+                        </button>
+                    </li>
+                </ul>
+
+                </div>
+            </div>
+            </nav>
+    </header>
+    <main class="main container container-lg" id="main">
+        <section class="main__section row">            
+            <article class="main__article col-12 col-lg-8 d-flex  justify-content-around align-items-start pt-3">
+                <ul class="preview row p-0 row-gap-4">
+                    <li class="preview__item p-0">
+                        <button data-bs-target="#carouselClothes" data-bs-slide-to="0" aria-current="true" aria-label="Slide 1" class="preview__link p-0 active">
+                            <img class="preview__icon" src="./assets/images/img-1.png" alt="preview image">
+                        </button>
+                    </li>
+                    <li class="preview__item p-0">
+                        <button data-bs-target="#carouselClothes" data-bs-slide-to="1" aria-label="Slide 2" class="preview__link p-0">
+                            <img class="preview__icon" src="./assets/images/img-2.png" alt="preview image">
+                        </button>
+                    </li>
+                    <li class="preview__item p-0">
+                        <button data-bs-target="#carouselClothes" data-bs-slide-to="2" aria-label="Slide 3" class="preview__link p-0">
+                            <img class="preview__icon" src="./assets/images/img-3.png" alt="preview image">
+                        </button>
+                    </li>
+                    <li class="preview__item p-0">
+                        <button data-bs-target="#carouselClothes" data-bs-slide-to="3" aria-label="Slide 4" class="preview__link p-0">
+                            <img class="preview__icon" src="./assets/images/img-4.png" alt="preview image">
+                        </button>
+                    </li>
+                </ul>
+                <div id="carouselClothes" class="carousel slide col-8">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                        <img src="./assets/images/img-1.png" class="d-block w-100" alt="preview img">
+                        </div>
+                        <div class="carousel-item">
+                        <img src="./assets/images/img-2.png" class="d-block w-100" alt="preview img">
+                        </div>
+                        <div class="carousel-item">
+                        <img src="./assets/images/img-3.png" class="d-block w-100" alt="preview img">
+                        </div>
+                        <div class="carousel-item">
+                        <img src="./assets/images/img-4.png" class="d-block w-100" alt="preview img">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselClothes" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselClothes" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </article>
+            <article class="main__article col-12 col-lg-4 p-5 p-lg-0">
+                <h1 class="main__title fw-bold fs-1">Crown Sweatshirt</h1>
+                <em class="price fs-3 fst-normal mt-2">$ 80.00</em>
+
+                <form class="form mt-3">
+                    <fieldset class="form__section">
+                        <legend class="form__title fs-5 mt-3">Size</legend>
+                        <div class="form__size d-flex justify-content-start align-items-center">
+                            <div class="form__group">
+                                <input type="radio" name="size" class="form__input form__input--radio" checked id="s">
+                                <label for="s" class="form__label text-uppercase">S</label>
+                            </div>
+                            <div class="form__group">
+                                <input type="radio" name="size" class="form__input form__input--radio" id="m">
+                                <label for="m" class="form__label text-uppercase">m</label>
+                            </div>
+                            <div class="form__group">
+                                <input type="radio" name="size" class="form__input form__input--radio" id="l">
+                                <label for="l" class="form__label text-uppercase">l</label>
+                            </div>
+                            <div class="form__group">
+                                <input type="radio" name="size" class="form__input form__input--radio" id="xl">
+                                <label for="xl" class="form__label text-uppercase">xl</label>
+                            </div>
+                            <div class="form__group">
+                                <input type="radio" name="size" class="form__input form__input--radio" id="xxl">
+                                <label for="xxl" class="form__label text-uppercase">xxl</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="form__btns row row-gap-2 mt-4 mt-lg-5">
+                        <button class="form__btn btn btn-dark rounded-0">ADD TO CART</button>
+                        <button class="form__btn btn btn-primary rounded-0">BUY IT NOW</button>
+                    </div>
+                </form>
+                <div class="description mt-4">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil commodi facere, error dicta voluptatem impedit fuga non fugiat ea! Incidunt delectus explicabo qui minima consequuntur atque, aperiam aut cumque a?
+                    <a href="#" class="description__link mt-5 d-block">Click for Sizing</a>
+                </div>
+            </article>
+            <article class="main__article mt-5">
+                <h3 class="main__title text-center fw-bold">YOU MAY ALSO LIKE</h3>
+                <ul class="cards__container d-flex flex-wrap justify-content-evenly">
+                    <li class="card border-0">
+                        <img class="card__img" src="./assets/images/img-5.png" alt="img card">
+                        <p class="card__descritpion fw-bold fs-5 text-center">
+                            <strong class="card__title d-block mt-3">Fresh Stripe Sweater</strong>
+                            <em class="card__price fst-normal">$85.00</em>
+                        </p>
+                    </li>
+                    <li class="card border-0">
+                        <img class="card__img" src="./assets/images/img-8.png" alt="img card">
+                        <p class="card__descritpion fw-bold fs-5 text-center">
+                            <strong class="card__title d-block mt-3">Fresh Black Tie-Dye Hoodie</strong>
+                            <em class="card__price fst-normal">$75.00</em>
+                        </p>
+                    </li>
+                    <li class="card border-0">
+                        <img class="card__img" src="./assets/images/img-14.png" alt="img card">
+                        <p class="card__descritpion fw-bold fs-5 text-center">
+                            <strong class="card__title d-block mt-3">Pose For It Tee</strong>
+                            <em class="card__price fst-normal">$45.00</em>
+                        </p>
+                    </li>
+                </ul>
+            </article>
+        </section>        
+    </main>
+    <aside class="aside">
+        <div class="offcanvas offcanvas-end" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+            <div class="offcanvas-header pt-4">              
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body pt-5">
+                <div class="cart">
+                    <ul class="cards">
+                        <li class="card">
+                            <img class="card__img" src="./assets/images/img-1.png" alt="image">
+                            <p class="card__description">
+                                <strong class="card__name">Crown Sweatshirt</strong>
+                                <em class="card__price">$85.00</em>
+                            </p>
+                            <div class="card__actions">
+                                <span class="amount">1</span>
+                                <button class="btn">Remove</button>
+                            </div>
+                        </li>                
+                    </ul>
+                    <p class="subtotal">
+                        Subtotal <em class="subtotal__value">$85.00</em>
+                    </p>
+                </div>
+                <p class="checkout d-flex flex-column">
+                    <em class="checkout__info">Shipping, taxes, and discount codes calculated at checkout.</em>
+                    <a class="checkout__btn btn btn-lg btn-primary rounded-1 mt-3 mb-4 text-uppercase">Check out</a>
+                    <strong class="checkout__note">
+                        Please Note: All items are pre-order and will ship in 6-10 weeks. Guaranteed holiday delivery.
+                    </strong>
+                </p>
+            </div>
+            </div>
+    </aside>
+    <footer class="footer container container-lg px-5 pt-5 mt-5">
+        <img class="footer__img" src="./assets/images/cover.png" alt="cover">
+        <section class="footer__section bg-dark d-flex flex-column align-items-center justify-content-center mt-md-4 mt-lg-5">
+            <h6 class="title me-5">Príncipe fresco</h6>
+            <ul class="footer__list d-flex mt-3 mt-xl-5">
+                <li class="footer__item mx-3">
+                    <a href="#" class="footer__link">
+                        <img class="footer__icon" src="./assets/icons/video.svg" alt="video icon">
+                    </a>
+                </li>
+                <li class="footer__item mx-3">
+                    <a href="#" class="footer__link">
+                        <img class="footer__icon" src="./assets/icons/facebook.svg" alt="facebook icon">
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="./app/index.js" type="module"></script>
+</body>
+</html>
