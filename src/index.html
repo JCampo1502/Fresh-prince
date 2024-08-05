@@ -26,14 +26,14 @@
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="./pages/login.html">
                             <img src="./assets/icons/user.svg" alt="icon">
                         </a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="#">
+                      <button class="nav-link active" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
                         <img src="./assets/icons/shop.svg" alt="icon">
-                      </a>
+                      </button>
                     </li>
                 </ul>
 
@@ -43,7 +43,7 @@
     </header>
     <main class="main container container-lg">
         <section class="main__section row">            
-            <article class="main__article col-8 d-flex  justify-content-around align-items-start pt-3">
+            <article class="main__article col-12 col-lg-8 d-flex  justify-content-around align-items-start pt-3">
                 <ul class="preview row p-0 row-gap-4">
                     <li class="preview__item p-0">
                         <button data-bs-target="#carouselClothes" data-bs-slide-to="0" aria-current="true" aria-label="Slide 1" class="preview__link p-0 active">
@@ -91,7 +91,7 @@
                     </button>
                   </div>
             </article>
-            <article class="main__article col-4">
+            <article class="main__article col-12 col-lg-4 p-5 p-lg-0">
                 <h1 class="main__title fw-bold fs-1">Crown Sweatshirt</h1>
                 <em class="price fs-3 fst-normal mt-2">$ 80.00</em>
 
@@ -159,11 +159,45 @@
             </article>
         </section>        
     </main>
+    <aside class="aside">
+        <div class="offcanvas offcanvas-end" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+            <div class="offcanvas-header pt-4">              
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body pt-5">
+                <div class="cart">
+                    <ul class="cards">
+                        <li class="card">
+                            <img class="card__img" src="./assets/images/img-1.png" alt="image">
+                            <p class="card__description">
+                                <strong class="card__name">Crown Sweatshirt</strong>
+                                <em class="card__price">$85.00</em>
+                            </p>
+                            <div class="card__actions">
+                                <span class="amount">1</span>
+                                <button class="btn">Remove</button>
+                            </div>
+                        </li>                
+                    </ul>
+                    <p class="subtotal">
+                        Subtotal <em class="subtotal__value">$85.00</em>
+                    </p>
+                </div>
+                <p class="checkout">
+                    <em class="checkout__info">Shipping, taxes, and discount codes calculated at checkout.</em>
+                    <a class="checkout__btn btn btn-primary rounded-0 text-uppercase">Check out</a>
+                    <strong class="checkout__note">
+                        Please Note: All items are pre-order and will ship in 6-10 weeks. Guaranteed holiday delivery.
+                    </strong>
+                </p>
+            </div>
+          </div>
+    </aside>
     <footer class="footer container container-lg px-5 pt-5 mt-5">
         <img class="footer__img" src="./assets/images/cover.png" alt="cover">
-        <section class="footer__section bg-dark d-flex flex-column align-items-center justify-content-center mt-5">
+        <section class="footer__section bg-dark d-flex flex-column align-items-center justify-content-center mt-md-4 mt-lg-5">
             <h6 class="title me-5">Príncipe fresco</h6>
-            <ul class="footer__list d-flex mt-5">
+            <ul class="footer__list d-flex mt-3 mt-xl-5">
                 <li class="footer__item mx-3">
                     <a href="#" class="footer__link">
                         <img class="footer__icon" src="./assets/icons/video.svg" alt="video icon">
