@@ -1,0 +1,79 @@
+$textFont: sans-serif;
+
+body {
+  height: 100vh;
+  color: aliceblue;
+  background: url("/src/files/img/ropa-fondo-2.jpg") no-repeat center;
+  object-fit: contain;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contenedor {
+  font-family: $textFont;
+  background: rgba(255, 255, 255, 0.25);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  border: 1.5px solid rgba(209, 213, 219, 0.3);
+  border-radius: 20px;
+  width: clamp(25rem, 11.607rem + 35.714vw, 43.75rem);
+
+  .login {
+    display: grid;
+    justify-items: center;
+    padding: 30px;
+
+
+
+    form {
+      margin-top: 50px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+      label {
+        font-size: 20px;
+        margin-left: 30px;
+      }
+
+      input {
+        height: 25px;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        margin-bottom: 30px;
+      }
+    }
+
+    .enlaces {
+      margin-bottom: 20px;
+      a {
+        color: #6bd0ff;
+        font-size: 15px;
+      }
+    }
+
+    .registrar {
+      a {
+        margin-left: 10px;
+        
+      }
+    }
+    .boton {
+      width: 300px;
+      height: 40px;
+      margin: auto;
+      margin-bottom: 30px;
+      background: #10a549;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 400;
+      font-size: 18px;
+      color: #fff;
+      font-family: $textFont;
+      border: none;
+    }
+  }
+}
