@@ -210,3 +210,13 @@
         text-align: center;
     }
 }
+
+.cards__container--collections{
+    .card__img {
+        width: 100%;
+        height: auto;
+    }
+    img{        
+        width: 100%;     
+    }
+}
