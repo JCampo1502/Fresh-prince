@@ -129,8 +129,12 @@
 }
 
 
-.cart{
+.cart{    
+
     .cards{
+
+        max-height: 50vh;
+        overflow-y: auto;
         list-style: none;        
         padding: 0;
 
@@ -158,9 +162,13 @@
                 margin: 0;
 
                 .card__name{
-                    font-size: 1.5rem;
+                    font-size: 1.2rem;
                     
                 }
+            }
+
+            .card__price{
+                font-style: normal;
             }
 
             .card__actions{
@@ -168,8 +176,37 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+
+                .amount{
+                    border-bottom: 4px solid #1D1D1D;                    
+                    width: 100%;
+                    text-align: center;
+                }
             }
         }
     }
 
+    .subtotal{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        font-weight: 500;
+        font-size: 20px;
+        margin-top: 115px;
+        margin-bottom: 57.5px;
+        em{
+            font-style: normal;
+        }
+    }
+}
+
+.checkout{
+    .checkout__info{
+        font-size: .75rem;
+    }
+
+    .checkout__note{
+        font-size: .9rem;
+        text-align: center;
+    }
 }
