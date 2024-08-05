@@ -44,5 +44,13 @@
         }
 
     
+    ],
+
+    "usurios":[
+        {
+            "id":1,
+            "name":"ADIMIN",
+            "admin":true
+        }
     ]
 }
