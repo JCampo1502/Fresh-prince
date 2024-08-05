@@ -1,0 +1,11 @@
+#uno{
+    max-width: 500px; 
+    left: 50%;
+}
+
+#dos,#tres,#cuatro{
+    display: inline-block;
+    max-width: 300px; 
+    margin: 10px;
+    left: 100%;
+}
