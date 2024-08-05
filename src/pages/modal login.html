@@ -8,6 +8,7 @@
   <style>
     /* Estilos del modal */
     .modal {
+      font-family: sans-serif;
       display: none;
       position: fixed;
       z-index: 1;
@@ -86,7 +87,7 @@
         const errorElement = document.getElementById("error");
 
         loginImage.addEventListener("click", function () {
-          modal.style.display = "block";
+          modal.style.display = "grid";
         });
 
         closeButton.addEventListener("click", function () {
@@ -116,7 +117,7 @@
 
           if (userExists) {
             errorElement.textContent = "¡Login exitoso!";
-            // Aquí puedes redirigir a otra página o realizar otra acción
+            window.location.href = "/src/pages/admin.html";
           } else {
             errorElement.textContent = "Correo o contraseña incorrectos.";
           }
