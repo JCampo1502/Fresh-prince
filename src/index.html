@@ -1,13 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Reto Agile Inova</title>
-    <link rel="stylesheet" href="./styles/styles.css" />
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/src/styles/login.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <title>Login</title>
+</head>
+<body>
+  <!-- login -->
+  <section id="login" class="animate__animated animate__fadeInUp">
+    <div class="contenedor">
+      <div class="login">
+        <article><img src="/Assets/Archivos/img/icon.png" alt="" /></article>
+        <h2>Iniciar sesión</h2>
+    
+        <form id="loginForm">
+          <label for="correo">Correo electrónico</label>
+          <input type="email" id="correo" placeholder="Ingrese su correo electrónico" />
+          <label for="contrasena">Contraseña</label>
+          <input type="password" id="contrasena" placeholder="Ingrese su correo electrónico" />
+          <button type="button" class="boton" onclick="ingresar()">Ingresar</button>
+        </form>
+       
+        <span class="enlaces registrar">No tienes cuenta?<a href="#" id="ingresar">inscribirse</a></span>
+      </div>
+    </div>
+  </section>
 
-    <script src="./app/index.js"></script>
-  </body>
+  <!-- registro -->
+  <section class="animate__animated animate__fadeInUp" id="registro" style="display: none">
+    <div class="contenedor">
+      <div class="login">
+        <h2>Registrarse</h2>
+        <form>
+
+          <label for="registrar_correo">Correo electrónico</label>
+          <input type="email" id="registrar_correo" placeholder="Ingrese su correo electrónico" />
+          <label for="registrar_correo">Contraseña</label>
+          <input type="password" id="registrar_contrasena" placeholder="Ingrese su correo electrónico" />
+          <button type="button" class="boton" onclick="guardarcorreo()">Registrarse</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  <script src="/src/app/modules/login.js"></script>
+</body>
 </html>
