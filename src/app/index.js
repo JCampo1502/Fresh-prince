@@ -1,8 +1,14 @@
-import getData from "../app/helpers/getData.js"
-import { showData } from "../app/modules/show.js"
+import { home } from "./modules/home/home.js";
+import { showCollection } from "./modules/home/showCollections.js";
 
-const url ="http://localhost:3000/ropa"
-const main = document.getElementById("main")
-const ropa=await getData(url)
+const user = sessionStorage.getItem("usuarioActual");
 
-showData(ropa,main)
+if(user)
+{
+    showCollection();
+    home();
+}
+else
+{        
+    window.location.href = "/src/index.html";
+}
